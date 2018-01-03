@@ -1,0 +1,29 @@
+{
+  "name": "probot-ooo",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Steve Winton <stevewinton@gmail.com> (https://github.com/swinton/probot-ooo)",
+  "license": "ISC",
+  "repository": "https://github.com/swinton/probot-ooo.git",
+  "scripts": {
+    "start": "probot run ./index.js",
+    "test": "jest && standard"
+  },
+  "dependencies": {
+    "probot": "^4.0.0"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "localtunnel": "^1.8.2",
+    "standard": "^10.0.3"
+  },
+  "engines": {
+    "node": ">= 7.7.0",
+    "npm": ">= 4.0.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
