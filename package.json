@@ -8,11 +8,12 @@
   "scripts": {
     "start": "probot run ./index.js",
     "test": "jest && standard",
-    "simulate": "LOG_LEVEL=info probot simulate issues ./__tests__/fixtures/issues.opened.json ./index.js"
+    "simulate": "LOG_LEVEL=info probot simulate issue_comment ./__tests__/fixtures/issue_comment.json ./index.js"
   },
   "dependencies": {
     "probot": "^4.0.0",
-    "probot-commands": "^1.0.1"
+    "probot-commands": "^1.0.1",
+    "sherlockjs": "^1.3.7"
   },
   "devDependencies": {
     "jest": "^21.2.1",
