@@ -1,9 +1,15 @@
 // Use UTC for for all Date parsing
 process.env.TZ = 'UTC';
 
+const Sequelize = require('sequelize');
 const commands = require('probot-commands')
 const Sherlock = require('sherlockjs')
 const moment = require('moment')
+const models = require('./lib/models')
+
+// Connect to database, define models
+const sequelize = new Sequelize(process.env.DATABASE_URL)
+const OutOfOffice = models.OutOfOffice(sequelize)
 
 module.exports = robot => {
   // Type `/ooo from to until` in a comment box for an Issue or Pull Request
