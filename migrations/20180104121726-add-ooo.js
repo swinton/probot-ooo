@@ -14,7 +14,7 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db) {
+exports.up = function(db, callback) {
   db.createTable('out_of_office', {
     columns: {
       id: { type: 'int', primaryKey: true, autoIncrement: true },
@@ -28,18 +28,11 @@ exports.up = function(db) {
       end_date: { type: 'datetime', notNull: true}
     },
     ifNotExists: true
-  })
-
-  db.addIndex('out_of_office', 'sender_idx', ['sender'])
-  db.addIndex('out_of_office', 'start_date_idx', ['start_date'])
-  db.addIndex('out_of_office', 'end_date_idx', ['end_date'])
+  }, callback);
 };
 
-exports.down = function(db) {
-  db.dropTable('out_of_office', { ifExists: true })
-  db.removeIndex('out_of_office', 'sender_idx')
-  db.removeIndex('out_of_office', 'start_date_idx')
-  db.removeIndex('out_of_office', 'end_date_idx')
+exports.down = function(db, callback) {
+  db.dropTable('out_of_office', { ifExists: true }, callback);
 };
 
 exports._meta = {
