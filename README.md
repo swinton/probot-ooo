@@ -1,6 +1,6 @@
 # probot-ooo
 
-> a GitHub App built with [probot](https://github.com/probot/probot) that 
+Respond with an auto-responder when you are OOO.
 
 ## Setup
 
