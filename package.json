@@ -11,6 +11,7 @@
     "simulate": "LOG_LEVEL=info probot simulate issue_comment ./__tests__/fixtures/issue_comment.json ./index.js"
   },
   "dependencies": {
+    "moment": "^2.20.1",
     "probot": "^4.0.0",
     "probot-commands": "^1.0.1",
     "sherlockjs": "^1.3.7"
