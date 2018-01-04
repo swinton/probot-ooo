@@ -13,8 +13,9 @@ module.exports = robot => {
         sender = context.payload.sender.login,
         owner = context.payload.repository.owner.login,
         repo = context.payload.repository.name,
-        comment_id = context.payload.comment.id,
-        comment_html_url = context.payload.comment.html_url
+        issue = context.payload.issue.number,
+        commendId = context.payload.comment.id,
+        commentHtmlUrl = context.payload.comment.html_url
 
     // TODO
     // Preserve the following data
@@ -23,12 +24,12 @@ module.exports = robot => {
     console.log('sender', sender)
     console.log('owner', owner)
     console.log('repo', repo)
-    console.log('comment_id', comment_id)
-    console.log('comment_html_url', comment_html_url)
+    console.log('commendId', commendId)
+    console.log('commentHtmlUrl', commentHtmlUrl)
 
     // Respond with confirmation
     context.github.issues.createComment(context.issue({
-      body: `:+1: Marked @${sender} as [OOO from ${moment(ooo.startDate).format("dddd, MMMM Do YYYY")} to ${moment(ooo.endDate).format("dddd, MMMM Do YYYY")}](${comment_html_url}) :calendar:.`
+      body: `:+1: Marked @${sender} as [OOO from ${moment(ooo.startDate).format("dddd, MMMM Do YYYY")} to ${moment(ooo.endDate).format("dddd, MMMM Do YYYY")}](${commentHtmlUrl}) :calendar:.`
     }))
   }
 
