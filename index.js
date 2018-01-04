@@ -1,10 +1,7 @@
 module.exports = (robot) => {
-  // Your code here
-  console.log('Yay, the app was loaded!')
 
-  // For more information on building apps:
-  // https://probot.github.io/docs/
+  robot.on('issues.opened', async context => {
+    console.log('issue opened', context.payload)
+  })
 
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
 }

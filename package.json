@@ -7,7 +7,8 @@
   "repository": "https://github.com/swinton/probot-ooo.git",
   "scripts": {
     "start": "probot run ./index.js",
-    "test": "jest && standard"
+    "test": "jest && standard",
+    "simulate": "LOG_LEVEL=info probot simulate issues ./__tests__/fixtures/issues.opened.json ./index.js"
   },
   "dependencies": {
     "probot": "^4.0.0"
