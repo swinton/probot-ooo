@@ -14,28 +14,41 @@ module.exports = robot => {
   // Type `/ooo from to until` in a comment box for an Issue or Pull Request
   const keyword = 'ooo'
   const handler = (context, command) => {
-    let ooo = Sherlock.parse(command.arguments),
+    let args = Sherlock.parse(command.arguments),
         sender = context.payload.sender.login,
         owner = context.payload.repository.owner.login,
         repo = context.payload.repository.name,
         issue = context.payload.issue.number,
-        commendId = context.payload.comment.id,
+        commentId = context.payload.comment.id,
         commentHtmlUrl = context.payload.comment.html_url
 
-    // TODO
     // Preserve the following data
-    console.log('startDate', ooo.startDate)
-    console.log('endDate', ooo.endDate)
-    console.log('sender', sender)
-    console.log('owner', owner)
-    console.log('repo', repo)
-    console.log('commendId', commendId)
-    console.log('commentHtmlUrl', commentHtmlUrl)
-
-    // Respond with confirmation
-    context.github.issues.createComment(context.issue({
-      body: `:+1: Marked @${sender} as [OOO from ${moment(ooo.startDate).format("dddd, MMMM Do YYYY")} to ${moment(ooo.endDate).format("dddd, MMMM Do YYYY")}](${commentHtmlUrl}) :calendar:.`
-    }))
+    robot.log.info('message', args.eventTitle)
+    robot.log.info('startDate', args.startDate)
+    robot.log.info('endDate', args.endDate)
+    robot.log.info('sender', sender)
+    robot.log.info('owner', owner)
+    robot.log.info('repo', repo)
+    robot.log.info('issue', issue)
+    robot.log.info('commentId', commentId)
+    robot.log.info('commentHtmlUrl', commentHtmlUrl)
+    OutOfOffice.create({
+      message: args.eventTitle,
+      startDate: args.startDate,
+      endDate: args.endDate,
+      sender: sender,
+      owner: owner,
+      repo: repo,
+      issue: issue,
+      commentId: commentId,
+      commentHtmlUrl: commentHtmlUrl
+    })
+    .then(() => {
+      // Respond with confirmation
+      context.github.issues.createComment(context.issue({
+        body: `:+1: Marked @${sender} as [OOO from ${moment(args.startDate).format("dddd, MMMM Do YYYY")} to ${moment(args.endDate).format("dddd, MMMM Do YYYY")}](${commentHtmlUrl}) :calendar:.`
+      }))
+    })
   }
 
   commands(robot, keyword, handler)
