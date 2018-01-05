@@ -16,6 +16,9 @@ While are OOO, `probot-ooo` will respond on your behalf with a generic out of of
 # Install dependencies
 npm install
 
+# Install database
+npm run-script migrate
+
 # Run the bot
 npm start
 
