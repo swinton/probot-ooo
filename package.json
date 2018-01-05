@@ -9,7 +9,8 @@
     "start": "probot run ./index.js",
     "migrate": "./node_modules/db-migrate/bin/db-migrate up",
     "test": "jest && standard",
-    "simulate": "LOG_LEVEL=info probot simulate issue_comment ./__tests__/fixtures/issue_comment.json ./index.js"
+    "simulate-ooo": "LOG_LEVEL=info probot simulate issue_comment ./__tests__/fixtures/issue_comment.json ./index.js",
+    "simulate-mention": "LOG_LEVEL=info probot simulate issue_comment ./__tests__/fixtures/issue_comment_mention.json ./index.js"
   },
   "dependencies": {
     "db-migrate": "^0.10.2",

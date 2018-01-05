@@ -22,8 +22,11 @@ npm run-script migrate
 # Run the bot
 npm start
 
-# Simulate an opened issue
-npm run-script simulate
+# Simulate an OOO request
+npm run-script simulate-ooo
+
+# Simulate a mention
+npm run-script simulate-mention
 ```
 
 See [docs/deploy.md](docs/deploy.md) if you would like to run your own instance of this app.
