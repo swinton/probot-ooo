@@ -62,7 +62,8 @@ module.exports = robot => {
       }
 
       // Iterate over all unique @mentions
-      const re = /@[A-Za-z0-9]+/g
+      // Regex via https://git.io/vNTi5
+      const re = /@[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}/gi
       const mentions = context.payload.comment.body.match(re)
         .filter((mention, index, mentions) => mentions.indexOf(mention) === index)
         .map(mention => mention.substring(1))
