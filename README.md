@@ -1,14 +1,19 @@
-# probot-ooo
+# Probot: OOO
 
-**Respond with an auto-responder when you are OOO.**
+> **Respond with an auto-responder when you are _out of office_ (OOO).**
 
-This is a :construction: :warning: work in progress :warning: :construction: but here's the basic idea...
-
-Set your OOO in an issue comment:
+Use the `/ooo` slash command to let everyone know when you will be OOO:
 
 <img width="793" alt="screenshot 2018-01-03 18 47 15" src="https://user-images.githubusercontent.com/27806/34545993-8e21b866-f0b6-11e7-9cc4-750d6f9b2ed5.png">
 
-While are OOO, `probot-ooo` will respond on your behalf with a generic out of office reminder, should anyone mention you.
+While are enjoying your OOO, `probot-ooo` will respond on your behalf to anyone who mentions you, with an _out of office reply_:
+
+<img width="802" alt="screen shot 2018-01-05 at 6 16 55 pm" src="https://user-images.githubusercontent.com/27806/34633882-c505d878-f244-11e7-89c2-c367afdb738a.png">
+
+## Usage
+
+1. Install the [**GitHub App**](https://github.com/apps/ooo)
+1. Start using the `/ooo` command to set up OOO reminders within your organization
 
 ## Setup
 
