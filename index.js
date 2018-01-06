@@ -56,6 +56,11 @@ module.exports = robot => {
 
   // Handle mentions while OOO
   robot.on('issue_comment.created', context => {
+      // Ignore if from a bot
+      if (context.payload.comment.user.type === 'Bot') {
+        return
+      }
+
       // Iterate over all unique @mentions
       const re = /@[A-Za-z0-9]+/g
       const mentions = context.payload.comment.body.match(re)
